@@ -1,0 +1,16 @@
+{
+  "name": "preparo-code-challenge-b",
+  "version": "1.0.0",
+  "description": "Resolução (server-side) para o Code Challenge proposto no Processo Seletivo da Preparo.vc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "code-challenge",
+    "preparo",
+    "backend"
+  ],
+  "author": "João Vitor Sanches",
+  "license": "MIT"
+}
