@@ -18,14 +18,14 @@ const Perfil = {
 
         return(
             <div className="content">
+                <Router>
                 <Aside>{subpages}</Aside>
-                <main>
-                    <Router>
+                    <main>
                         <Switch>
                             {routes}
                         </Switch>
-                    </Router>
-                </main>
+                    </main>
+                </Router>
             </div>
         );
     }

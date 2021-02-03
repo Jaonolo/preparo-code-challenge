@@ -1,6 +1,9 @@
-import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route, Redirect, useHistory} from 'react-router-dom'
 import Header from './HeaderContainer'
 import Perfil from './Perfil.js'
+import Login from './login.js'
+import { useContext } from "react";
+import { UserContext } from "./provider/UserProvider";
 import './App.css'
 
 export default function App() {
@@ -12,19 +15,29 @@ export default function App() {
             <Route path={items.url} component={items.content}/>
     )
 
-    console.log(routes)
+    const user = useContext(UserContext)    
+    const redirect = (user === null ? '/login' : '/perfil')
+    const path = (user === null ? '/perfil' : '/login')
+    console.log(user)
 
     return(
-        <Router className="blob">
+        <Router>
             <div className="app">
+                <teste/>
                 <Header>{pages}</Header>
                 <Switch>
                     <Route path="/" exact>
-                        <Redirect to="/perfil"/>
+                        <Redirect to={redirect}/>
+                    </Route>
+                    <Route path={path} exact>
+                        <Redirect to={redirect}/>
                     </Route>
                     {routes}
+                    <Route path="/login" component={Login}/>
+                    <Route component={() => 'deu ruim galera'}/>
                 </Switch>
             </div>
         </Router>
     );
 }
+
